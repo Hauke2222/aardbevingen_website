@@ -6,22 +6,14 @@ async function getInduced() {
     const response = await fetch(urlInduced);
     parsedInduced = await response.json();
     console.log(parsedInduced);
-    return parsedInduced;
-
+    displayData()
 }
 
 function displayData() {
-    for (let i = 0; i < parsedInduced.length; i++) {
-        console.log(test);
-        
-        let inducedEvent = parsedInduced[i];
+    for (let i = 0; i < parsedInduced["events"].length; i++) {
         let div = document.createElement('div');
-        div.innerHTML = inducedEvent.date;
+        div.innerHTML = parsedInduced["events"][i].date +  parsedInduced["events"][i].place +  parsedInduced["events"][i].mag;
         document.body.appendChild(div);
     }
 }
 getInduced();
-displayData();
-
-
-//obj.events[0].date + " " + obj.events[0].place;
