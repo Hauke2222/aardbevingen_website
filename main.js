@@ -11,28 +11,44 @@ async function getInduced() {
 
 function displayData() {
 
-    var events = parsedInduced.events;
+    let events = parsedInduced.events;
     events.map((value, index) => {
+    
 
-        console.log(index, value);
-
-        var table = document.getElementById("mytable");
-        var row = table.insertRow(index + 1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
+        let table = document.getElementById("myTable");
+        let row = table.insertRow(index + 1);
+        let cell1 = row.insertCell(0);
+        let cell2 = row.insertCell(1);
+        let cell3 = row.insertCell(2);
         cell1.innerHTML = value.date;
         cell2.innerHTML = value.place;
         cell3.innerHTML = value.mag;
 
 
     });
-
-
-    // for (let i = 0; i < parsedInduced["events"].length; i++) {
-    //    let div = document.createElement('div');
-    //   div.innerHTML = parsedInduced["events"][i].date +  parsedInduced["events"][i].place +  parsedInduced["events"][i].mag;
-    //   document.body.appendChild(div);
-    //}
 }
+
+function myFunction() {
+    // Declare variables
+    let input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    console.log(tr);
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
 getInduced(); 
