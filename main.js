@@ -10,10 +10,8 @@ async function getInduced() {
 }
 
 function displayData() {
-
     let events = parsedInduced.events;
     events.map((value, index) => {
-    
 
         let table = document.getElementById("myTable");
         let row = table.insertRow(index + 1);
@@ -23,32 +21,29 @@ function displayData() {
         cell1.innerHTML = value.date;
         cell2.innerHTML = value.place;
         cell3.innerHTML = value.mag;
-
-
     });
 }
 
-function myFunction() {
-    // Declare variables
-    let input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-    console.log(tr);
-  
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
+function searchInRows() {
+    let input = document.getElementById("myInput");
+    let filter = input.value.toUpperCase();
+    let table = document.getElementById("myTable");
+    let tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who do not match the search query
+    for (let i = 1; i < tr.length; i++) {
+        let td = tr[i];
+        if (td) {
+            let txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
         }
-      }
     }
-  }
+}
+
+
 
 getInduced(); 
