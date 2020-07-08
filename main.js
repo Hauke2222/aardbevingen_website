@@ -1,16 +1,16 @@
-const urlInduced = 'http://cdn.knmi.nl/knmi/map/page/seismologie/all_induced.json';
-const urlTectonic = 'http://cdn.knmi.nl/knmi/map/page/seismologie/all_tectonic.json';
-parsedInduced = [];
+//const urlInduced = 'http://cdn.knmi.nl/knmi/map/page/seismologie/all_induced.json';
+//const urlTectonic = 'http://cdn.knmi.nl/knmi/map/page/seismologie/all_tectonic.json';
+let parsed = [];
 
-async function getInduced() {
-    const response = await fetch(urlInduced);
-    parsedInduced = await response.json();
-    console.log(parsedInduced);
+async function getData(url) {
+    const response = await fetch(url);
+    parsed = await response.json();
+    console.log(parsed);
     displayData()
 }
 
 function displayData() {
-    let events = parsedInduced.events;
+    let events = parsed.events;
     events.map((value, index) => {
 
         let table = document.getElementById("myTable");
@@ -44,6 +44,4 @@ function searchInRows() {
     }
 }
 
-
-
-getInduced(); 
+getData(url); 
