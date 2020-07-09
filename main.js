@@ -1,12 +1,10 @@
-//const urlInduced = 'http://cdn.knmi.nl/knmi/map/page/seismologie/all_induced.json';
-//const urlTectonic = 'http://cdn.knmi.nl/knmi/map/page/seismologie/all_tectonic.json';
 let parsed = [];
 
 async function getData(url) {
     const response = await fetch(url);
     parsed = await response.json();
     console.log(parsed);
-    displayData()
+    displayData();
 }
 
 function displayData() {
@@ -18,9 +16,12 @@ function displayData() {
         let cell1 = row.insertCell(0);
         let cell2 = row.insertCell(1);
         let cell3 = row.insertCell(2);
+        let cell4 = row.insertCell(3);
         cell1.innerHTML = value.date;
         cell2.innerHTML = value.place;
-        cell3.innerHTML = value.mag;
+        cell3.innerHTML = '<a href="https://www.google.com/maps/place/'+value.lat+","+value.lon+"/@"+value.lat+","+value.lon+
+        ","+"14z"+'"target="_blank"><i class="material-icons">place</i>';
+        cell4.innerHTML = value.mag;
     });
 }
 
