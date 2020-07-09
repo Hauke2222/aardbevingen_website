@@ -14,30 +14,33 @@
 </head>
 
 <body>
-
   <div class="container">
-    <div class="row">
-      <pre>
-      <div class="shadow-sm p-1 bg-white rounded"><a href=index.html>Geïnduceerde Aardbevingen</a></div>
-      <div class="shadow-sm p-1 bg-white rounded"><a href=https://www.knmi.nl/kennis-en-datacentrum/uitleg/natuurlijke-aardbevingen 
-        target="_blank">Uitleg tektonisch en geïnduceerd</a></div>
-      <div class="shadow-sm p-1 bg-white rounded"><a href=https://github.com/Hauke2222 target="_blank">Github</a></div>
-    </pre>
-
-      <div class="col-md-10">
-        <h2>Tektonische Aardbevingen</h2>
-        <input type="text" id="myInput" onkeyup="searchInRows()" placeholder="Zoek op plaatsnaam, datum of magnitude..">
-        <table id="myTable" class="table">
-          <thead>
-            <tr>
-              <th>Datum</th>
-              <th>Plaats</th>
-              <th>Magnitude</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
+    <div class="links">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href=index.html>Geïnduceerde aardbevingen</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href=tectonic.html>Tektonische aardbevingen</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href=https://www.knmi.nl/kennis-en-datacentrum/uitleg/natuurlijke-aardbevingen
+            target="_blank">Verschil tektonisch en geïnduceerd</a>
+        </li>
+      </ul>
     </div>
+    <h2>Tektonische Aardbevingen</h2>
+    <input type="text" id="myInput" onkeyup="searchInRows()" placeholder="Zoek op plaatsnaam, datum of magnitude..">
+    <table id="myTable" class="table">
+      <thead>
+        <tr>
+          <th>Datum</th>
+          <th>Plaats</th>
+          <th>Google maps</th>
+          <th>Magnitude</th>
+        </tr>
+      </thead>
+    </table>
   </div>
   <script>
     const url = 'http://cdn.knmi.nl/knmi/map/page/seismologie/all_tectonic.json';
